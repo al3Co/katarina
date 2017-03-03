@@ -160,6 +160,7 @@ class Bebop:
 
     def takeoff( self ):
         self.update( videoRecordingCmd( on=True ) )
+        print "Battery:", self.battery
         for i in xrange(10):
             print i,
             self.update( cmd=None )
