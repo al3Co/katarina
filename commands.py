@@ -152,6 +152,17 @@ def navigateHomeCmd( go=True ):
     # ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_NAVIGATEHOME = 5,
     return struct.pack("<BBHB", 1, 0, 5, go)
 
+def moveByCmd( dX, dY, dZ, dPsi):
+    # ARCOMMANDS_ID_PROJECT_ARDRONE3 = 1,
+    # ARCOMMANDS_ID_ARDRONE3_CLASS_PILOTING = 0,
+    # ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_MOVEBY= 7,
+    # Move the drone to a relative position and rotate heading by a given angle
+    # dX (float): Wanted displacement along the front axis [m]
+    # dY (float): Wanted displacement along the right axis [m]
+    # dZ (float): Wanted displacement along the down axis [m]
+    # dPsi (float): Wanted rotation of heading [rad]
+    return struct.pack("<BBHffff", 1, 0, 7, dX, dY, dZ, dPsi)
+
 
 def packData( payload, ackRequest=False ):
     frameType = 2
