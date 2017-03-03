@@ -227,6 +227,9 @@ class Bebop:
         self.update( cmd=moveCameraCmd( tilt=tilt, pan=pan) )
         self.cameraTilt, self.cameraPan = tilt, pan # maybe move this to parse data, drone should confirm that
 
+    def moveBy( self, dX, dY, dZ, dPsi):
+        self.update( cmd=moveByCmd( dX, dY, dZ, dPsi) )
+
     def resetHome( self ):
         self.update( cmd=resetHomeCmd() )
 
